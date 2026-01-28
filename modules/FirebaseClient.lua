@@ -106,7 +106,23 @@ function FirebaseClient:Start(callback, backgroundCallback)
         end
     end)
 end
+function FirebaseClient:SetExtraChannels(channels)
 
+    self.ExtraChannels = channels or {}
+
+end
+
+
+
+function FirebaseClient:GetChannelUrl(key)
+
+    return key
+
+end
+
+
+
+FirebaseClient.ExtraChannels = {}
 function FirebaseClient:SetAuthToken() end
 function FirebaseClient:GetPresence() return {} end
 
