@@ -69,6 +69,11 @@ function FirebaseClient:Send(user, text)
     return http("POST", self.BaseUrl .. "/rest/v1/" .. self.Table, data)
 end
 
+function FirebaseClient:NormalizeKey(key)
+    if not key then return "default" end
+    return tostring(key):gsub("[%.%#%$%[%]]", "_")
+end
+
 function FirebaseClient:Start(callback, backgroundCallback)
     self.Active = true
     task.spawn(function()
